@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "buildCommand": "bash build.sh",
+  "outputDirectory": "public",
+  "framework": null,
+  "installCommand": "npm install && npm install -g hugo",
+  "env": {
+    "SANITY_PROJECT_ID": "@sanity-project-id",
+    "SANITY_DATASET": "production",
+    "SANITY_TOKEN": "@sanity-token"
+  },
+  "build": {
+    "env": {
+      "SANITY_PROJECT_ID": "@sanity-project-id",
+      "SANITY_DATASET": "production",
+      "SANITY_TOKEN": "@sanity-token"
+    }
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/studio/:path*",
+      "destination": "/studio/:path*"
+    }
+  ]
+}

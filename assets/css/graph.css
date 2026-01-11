@@ -1,0 +1,337 @@
+/* ============================================
+   Graph View Styles - Cytoscape.js
+   Hand-drawn Network Visualization
+   ============================================ */
+
+/* Graph Container */
+.graph-container {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 600px;
+  border: var(--border-thick) solid var(--color-ink);
+  border-radius: 30px 10px 30px 10px;
+  filter: url(#wobble);
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+/* Cytoscape Canvas */
+#cy {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Graph Controls Panel */
+.graph-controls {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  z-index: 10;
+}
+
+.graph-control-btn {
+  padding: var(--spacing-sm);
+  background: var(--color-bg);
+  border: var(--border-medium) solid var(--color-ink);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  filter: url(#wobble);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.graph-control-btn:hover {
+  background: var(--color-teal);
+  color: var(--color-bg);
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* Graph Legend */
+.graph-legend {
+  position: absolute;
+  bottom: var(--spacing-md);
+  left: var(--spacing-md);
+  background: var(--color-bg);
+  padding: var(--spacing-md);
+  border: var(--border-medium) solid var(--color-ink);
+  border-radius: 25px 8px 25px 8px;
+  filter: url(#wobble);
+  max-width: 300px;
+}
+
+.legend-title {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-sm);
+  border-bottom: var(--border-thin) solid var(--color-ink);
+  filter: url(#wobble);
+  padding-bottom: var(--spacing-xs);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin: var(--spacing-xs) 0;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border: var(--border-thin) solid var(--color-ink);
+  border-radius: 50%;
+  filter: url(#wobble);
+}
+
+.legend-label {
+  font-size: 0.9rem;
+}
+
+/* Graph Search Box */
+.graph-search {
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  z-index: 10;
+  max-width: 300px;
+}
+
+.graph-search-input {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  border: var(--border-medium) solid var(--color-ink);
+  border-radius: 40px 15px 40px 15px;
+  filter: url(#wobble);
+  background: var(--color-bg);
+  outline: none;
+}
+
+.graph-search-input:focus {
+  border-color: var(--color-teal);
+  box-shadow: 0 0 0 3px var(--color-shadow);
+}
+
+/* Graph Search Results Dropdown */
+.graph-search-results {
+  margin-top: var(--spacing-xs);
+  background: var(--color-bg);
+  border: var(--border-medium) solid var(--color-ink);
+  border-radius: 20px 8px 20px 8px;
+  filter: url(#wobble);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.graph-search-result-item {
+  padding: var(--spacing-sm);
+  cursor: pointer;
+  border-bottom: var(--border-thin) solid var(--color-ink);
+  transition: all 0.2s ease;
+}
+
+.graph-search-result-item:last-child {
+  border-bottom: none;
+}
+
+.graph-search-result-item:hover {
+  background: var(--color-teal);
+  color: var(--color-bg);
+}
+
+/* Node Info Tooltip */
+.node-tooltip {
+  position: absolute;
+  background: var(--color-bg);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: var(--border-medium) solid var(--color-ink);
+  border-radius: 30px 10px 30px 10px;
+  filter: url(#wobble);
+  pointer-events: none;
+  z-index: 100;
+  max-width: 250px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.node-tooltip-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-xs);
+}
+
+.node-tooltip-meta {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* Stats Overlay */
+.graph-stats {
+  position: absolute;
+  top: var(--spacing-md);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-bg);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: var(--border-medium) solid var(--color-ink);
+  border-radius: 40px 15px 40px 15px;
+  filter: url(#wobble);
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.graph-stat-item {
+  text-align: center;
+}
+
+.graph-stat-number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-teal);
+}
+
+.graph-stat-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+/* Layout Toggle Buttons */
+.layout-controls {
+  position: absolute;
+  bottom: var(--spacing-md);
+  right: var(--spacing-md);
+  display: flex;
+  gap: var(--spacing-sm);
+  z-index: 10;
+}
+
+.layout-btn {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-bg);
+  border: var(--border-medium) solid var(--color-ink);
+  border-radius: 30px 10px 30px 10px;
+  filter: url(#wobble);
+  cursor: pointer;
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.layout-btn.active {
+  background: var(--color-teal);
+  color: var(--color-bg);
+}
+
+.layout-btn:hover:not(.active) {
+  background: var(--color-orange);
+  color: var(--color-bg);
+}
+
+/* Loading Overlay */
+.graph-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 20;
+}
+
+.graph-loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: var(--border-thick) solid var(--color-ink);
+  border-top-color: var(--color-teal);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  filter: url(#wobble);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.graph-loading-text {
+  margin-top: var(--spacing-sm);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+/* Full-screen Toggle */
+.graph-fullscreen {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 9999;
+  border-radius: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .graph-container {
+    height: 60vh;
+    min-height: 400px;
+  }
+
+  .graph-legend {
+    max-width: 200px;
+    font-size: 0.85rem;
+  }
+
+  .graph-search {
+    max-width: 200px;
+  }
+
+  .graph-controls {
+    gap: var(--spacing-xs);
+  }
+
+  .graph-control-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .graph-stats {
+    font-size: 0.8rem;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .layout-controls {
+    flex-direction: column;
+  }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+  .graph-container {
+    background: #2A2A2A;
+  }
+
+  .node-tooltip,
+  .graph-legend,
+  .graph-search-input,
+  .graph-search-results {
+    background: #3A3A3A;
+    color: #F5F5F5;
+  }
+}

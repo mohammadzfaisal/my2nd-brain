@@ -1,0 +1,33 @@
+{{ if .Params.backlinks }}
+<div class="mt-xl">
+    <h2 class="hand-drawn-line hand-underline-orange mb-md">
+        <span class="doodle-arrow">←</span> Backlinks
+        <span class="number-circle number-circle-orange">{{ len .Params.backlinks }}</span>
+    </h2>
+    <p style="opacity: 0.8; margin-bottom: 1.5rem;">
+        These notes link to this page:
+    </p>
+
+    <div class="notes-grid">
+        {{ range .Params.backlinks }}
+        <div class="note-card note-card-compact">
+            <h4 class="note-card-title">
+                <a href="{{ .url }}" style="border: none; color: inherit;">{{ .title }}</a>
+            </h4>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ else }}
+<!-- Placeholder for dynamically loaded backlinks -->
+<div id="backlinks-container" class="mt-xl" style="display: none;">
+    <h2 class="hand-drawn-line hand-underline-orange mb-md">
+        <span class="doodle-arrow">←</span> Backlinks
+        <span id="backlinks-count" class="number-circle number-circle-orange">0</span>
+    </h2>
+    <p style="opacity: 0.8; margin-bottom: 1.5rem;">
+        These notes link to this page:
+    </p>
+    <div id="backlinks-list" class="notes-grid"></div>
+</div>
+{{ end }}

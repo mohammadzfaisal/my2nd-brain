@@ -1,0 +1,105 @@
+{{ define "main" }}
+<div class="container-wide">
+    <!-- Page Title -->
+    <div class="title-box-3d mb-md text-center">
+        <h1>🧠 Mind Map Graph View</h1>
+        <p style="margin: 0; font-size: 1rem;">Force-Directed Note Network</p>
+    </div>
+
+    <!-- Graph Container -->
+    <div class="graph-container">
+        <!-- Cytoscape Canvas -->
+        <div id="cy"></div>
+
+        <!-- Graph Search -->
+        <div class="graph-search">
+            <input
+                type="text"
+                class="graph-search-input"
+                placeholder="Search notes..."
+                id="graph-search"
+                aria-label="Search graph"
+            >
+            <div id="graph-search-results" class="graph-search-results" style="display: none;"></div>
+        </div>
+
+        <!-- Graph Stats -->
+        <div class="graph-stats">
+            <div class="graph-stat-item">
+                <span class="graph-stat-number" id="graph-nodes-count">0</span>
+                <span class="graph-stat-label">Notes</span>
+            </div>
+            <div class="graph-stat-item">
+                <span class="graph-stat-number" id="graph-edges-count">0</span>
+                <span class="graph-stat-label">Connections</span>
+            </div>
+        </div>
+
+        <!-- Control Buttons -->
+        <div class="graph-controls">
+            <button class="graph-control-btn" id="zoom-in" title="Zoom In" aria-label="Zoom in">
+                +
+            </button>
+            <button class="graph-control-btn" id="zoom-out" title="Zoom Out" aria-label="Zoom out">
+                −
+            </button>
+            <button class="graph-control-btn" id="zoom-reset" title="Reset Zoom" aria-label="Reset zoom">
+                ⊙
+            </button>
+            <button class="graph-control-btn" id="fullscreen" title="Toggle Fullscreen" aria-label="Toggle fullscreen">
+                ⛶
+            </button>
+        </div>
+
+        <!-- Legend -->
+        <div class="graph-legend">
+            <div class="legend-title">Legend</div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: var(--color-teal);"></div>
+                <span class="legend-label">Standard Note</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: var(--color-orange);"></div>
+                <span class="legend-label">Hub Note (3+ connections)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: var(--color-red);"></div>
+                <span class="legend-label">Selected</span>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="graph-loading" class="graph-loading">
+            <div class="graph-loading-spinner"></div>
+            <p class="graph-loading-text">Loading graph...</p>
+        </div>
+
+        <!-- Node Tooltip -->
+        <div id="node-tooltip" class="node-tooltip" style="display: none;">
+            <div class="node-tooltip-title"></div>
+            <div class="node-tooltip-meta"></div>
+        </div>
+    </div>
+
+    <!-- Instructions -->
+    <div class="mt-md">
+        <div class="sticky-note sticky-note-orange">
+            <strong>How to use:</strong> Click a node to navigate to that note. Double-click to center and highlight connections. Use controls to zoom and pan.
+        </div>
+    </div>
+</div>
+
+<!-- Initialize Graph -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Wait for Cytoscape to load
+    if (typeof cytoscape === 'undefined') {
+        console.error('Cytoscape not loaded');
+        return;
+    }
+
+    // Initialize graph view (will be enhanced by graph-view.js)
+    window.initGraphView && window.initGraphView();
+});
+</script>
+{{ end }}

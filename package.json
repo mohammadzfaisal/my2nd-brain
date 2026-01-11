@@ -1,0 +1,25 @@
+{
+  "name": "my2nd-brain",
+  "version": "1.0.0",
+  "description": "Knowledge Base Dashboard with Sketchnote Aesthetic",
+  "private": true,
+  "scripts": {
+    "dev": "hugo server --buildDrafts --disableFastRender",
+    "build": "bash build.sh",
+    "studio": "cd studio && sanity dev",
+    "studio:deploy": "cd studio && sanity deploy",
+    "fetch-sanity": "node scripts/fetch-sanity-data.js"
+  },
+  "dependencies": {
+    "@sanity/client": "^6.10.0",
+    "cytoscape": "^3.28.1",
+    "cytoscape-cose-bilkent": "^4.1.0",
+    "fuse.js": "^7.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

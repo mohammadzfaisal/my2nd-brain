@@ -1,0 +1,76 @@
+{{ define "main" }}
+<div class="container">
+    <!-- Note Title -->
+    <div class="title-box-3d mb-lg">
+        <h1>{{ .Title }}</h1>
+    </div>
+
+    <!-- Note Meta Information -->
+    <div class="note-meta mb-md" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+        {{ if .Params.tags }}
+        <div class="note-tags">
+            {{ range .Params.tags }}
+            <span class="tag">{{ . }}</span>
+            {{ end }}
+        </div>
+        {{ end }}
+
+        {{ if .Date }}
+        <span class="note-date">
+            Created: <strong>{{ .Date.Format "January 2, 2006" }}</strong>
+        </span>
+        {{ end }}
+
+        {{ if .Lastmod }}
+        <span class="note-date">
+            Updated: <strong>{{ .Lastmod.Format "January 2, 2006" }}</strong>
+        </span>
+        {{ end }}
+    </div>
+
+    <!-- Hand-drawn Divider -->
+    <div class="hand-divider mb-lg"></div>
+
+    <!-- Note Content -->
+    <article class="note-content" style="font-size: 1.1rem; line-height: 1.8;">
+        {{ .Content }}
+    </article>
+
+    <!-- References (Outbound Links) -->
+    {{ if .Params.references }}
+    <div class="mt-xl mb-lg">
+        <h2 class="hand-drawn-line hand-underline-teal mb-md">
+            <span class="doodle-arrow">→</span> References
+        </h2>
+        <div class="notes-grid">
+            {{ range .Params.references }}
+            <div class="note-card note-card-compact">
+                <h4 class="note-card-title">
+                    <a href="{{ .url }}" style="border: none; color: inherit;">{{ .title }}</a>
+                </h4>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+    {{ end }}
+
+    <!-- Backlinks Section -->
+    {{ partial "backlinks.html" . }}
+
+    <!-- Edit in Sanity Button -->
+    <div class="text-center mt-xl mb-lg">
+        <a href="{{ .Site.Params.sanityStudioUrl | default "/studio" }}" target="_blank" class="btn btn-secondary">
+            ✏️ Edit in Sanity Studio
+        </a>
+    </div>
+</div>
+
+<!-- Load note-specific data from Sanity for live backlinks -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const noteSlug = '{{ .File.ContentBaseName }}';
+    console.log('Note page loaded:', noteSlug);
+    // Will be enhanced by sanity-client.js
+});
+</script>
+{{ end }}

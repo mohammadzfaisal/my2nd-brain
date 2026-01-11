@@ -1,0 +1,50 @@
+{{ $slug := .slug.current | default .slug }}
+{{ $title := .title }}
+{{ $body := .body | default "" }}
+{{ $tags := .tags | default slice }}
+{{ $references := .references | default slice }}
+
+<article class="note-card">
+    <div class="note-card-header">
+        <h3 class="note-card-title">
+            <a href="/notes/{{ $slug }}/" style="border: none; color: inherit;">
+                {{ $title }}
+            </a>
+        </h3>
+    </div>
+
+    <div class="note-card-body">
+        {{ if $body }}
+            {{ if reflect.IsSlice $body }}
+                <!-- Portable Text rendering (simplified) -->
+                {{ range first 1 $body }}
+                    {{ range .children }}
+                        {{ .text }}
+                    {{ end }}
+                {{ end }}
+            {{ else }}
+                {{ $body | truncate 200 }}
+            {{ end }}
+        {{ else }}
+            <em>No content preview available</em>
+        {{ end }}
+    </div>
+
+    <div class="note-card-footer">
+        {{ if $tags }}
+        <div class="note-tags">
+            {{ range $tags }}
+            <span class="tag">{{ . }}</span>
+            {{ end }}
+        </div>
+        {{ end }}
+
+        {{ if $references }}
+        <span class="connection-count">{{ len $references }}</span>
+        {{ end }}
+
+        {{ if .createdAt }}
+        <span class="note-date">{{ dateFormat "Jan 2, 2006" .createdAt }}</span>
+        {{ end }}
+    </div>
+</article>

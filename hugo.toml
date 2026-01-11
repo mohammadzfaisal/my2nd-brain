@@ -1,0 +1,18 @@
+baseURL = 'https://my2ndbrain.vercel.app'
+languageCode = 'en-us'
+title = 'MY 2ND BRAIN'
+theme = ''
+
+[params]
+  description = "Mohammad Faisal's Knowledge Base"
+  author = "Mohammad Faisal"
+  sanityProjectId = ""
+  sanityDataset = "production"
+
+[outputs]
+  home = ["HTML", "JSON"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

@@ -1,0 +1,303 @@
+/* ============================================
+   Wobble Effects - Hand-drawn Aesthetic
+   ============================================ */
+
+/* Wobble Border Variations */
+.wobble-border-1 {
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+
+.wobble-border-2 {
+  border-radius: 240px 25px 210px 20px / 20px 210px 25px 240px;
+}
+
+.wobble-border-3 {
+  border-radius: 220px 30px 230px 18px / 25px 200px 20px 250px;
+}
+
+.wobble-border-4 {
+  border-radius: 200px 40px 190px 30px / 30px 190px 40px 200px;
+}
+
+.wobble-border-5 {
+  border-radius: 235px 20px 215px 25px / 18px 230px 22px 220px;
+}
+
+/* Random Rotation for Natural Look */
+.rotate-slight-left {
+  transform: rotate(-1deg);
+}
+
+.rotate-slight-right {
+  transform: rotate(1deg);
+}
+
+.rotate-medium-left {
+  transform: rotate(-2deg);
+}
+
+.rotate-medium-right {
+  transform: rotate(2deg);
+}
+
+/* Hand-drawn Line Styles */
+.hand-drawn-line {
+  position: relative;
+  display: inline-block;
+}
+
+.hand-drawn-line::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-ink);
+  filter: url(#wobble);
+}
+
+/* Hand-drawn underline with color variations */
+.hand-underline-teal::after {
+  background: var(--color-teal);
+}
+
+.hand-underline-orange::after {
+  background: var(--color-orange);
+}
+
+.hand-underline-red::after {
+  background: var(--color-red);
+}
+
+/* Marker Highlight Effect */
+.marker-highlight {
+  position: relative;
+  display: inline;
+  padding: 0.1em 0.3em;
+}
+
+.marker-highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -0.2em;
+  right: -0.2em;
+  bottom: 0;
+  background: var(--color-teal);
+  opacity: 0.3;
+  filter: url(#wobble);
+  z-index: -1;
+  transform: rotate(-0.5deg) skewX(-5deg);
+}
+
+.marker-highlight-orange::before {
+  background: var(--color-orange);
+}
+
+.marker-highlight-red::before {
+  background: var(--color-red);
+}
+
+/* Hand-drawn Bullets */
+.hand-bullet {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.hand-bullet::before {
+  content: '●';
+  position: absolute;
+  left: 0;
+  color: var(--color-orange);
+  font-size: 1.5em;
+  filter: url(#wobble);
+}
+
+.hand-bullet-teal::before {
+  color: var(--color-teal);
+}
+
+.hand-bullet-red::before {
+  color: var(--color-red);
+}
+
+/* Hand-drawn Checkbox */
+.hand-checkbox {
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+.hand-checkbox::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  width: 1.5em;
+  height: 1.5em;
+  border: var(--border-medium) solid var(--color-ink);
+  border-radius: 8px 3px 8px 3px;
+  filter: url(#wobble);
+}
+
+.hand-checkbox.checked::after {
+  content: '✓';
+  position: absolute;
+  left: 0.2em;
+  top: 0;
+  font-size: 1.3em;
+  color: var(--color-teal);
+  font-weight: 700;
+}
+
+/* Doodle Decorations */
+.doodle-star {
+  display: inline-block;
+  color: var(--color-orange);
+  filter: url(#wobble-text);
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  50% { opacity: 0.7; transform: scale(1.1) rotate(5deg); }
+}
+
+.doodle-arrow {
+  display: inline-block;
+  filter: url(#wobble-strong);
+}
+
+/* Hand-drawn Divider */
+.hand-divider {
+  position: relative;
+  height: 3px;
+  margin: var(--spacing-lg) 0;
+  background: var(--color-ink);
+  filter: url(#wobble);
+  border-radius: 50%;
+}
+
+.hand-divider-dashed {
+  background: repeating-linear-gradient(
+    to right,
+    var(--color-ink) 0px,
+    var(--color-ink) 20px,
+    transparent 20px,
+    transparent 40px
+  );
+}
+
+/* Sketch Shadow Effects */
+.sketch-shadow-teal {
+  position: relative;
+}
+
+.sketch-shadow-teal::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: -6px;
+  bottom: -6px;
+  background: var(--color-teal);
+  opacity: 0.2;
+  filter: url(#wobble);
+  z-index: -1;
+}
+
+.sketch-shadow-orange::after {
+  background: var(--color-orange);
+}
+
+/* Shaky Animation for Interactive Elements */
+@keyframes shake-subtle {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-1px, 1px) rotate(-0.5deg); }
+  50% { transform: translate(1px, -1px) rotate(0.5deg); }
+  75% { transform: translate(-1px, -1px) rotate(-0.3deg); }
+}
+
+.shaky-on-hover:hover {
+  animation: shake-subtle 0.5s ease-in-out infinite;
+}
+
+/* Hand-drawn Circle */
+.hand-circle {
+  border-radius: 50%;
+  filter: url(#wobble);
+}
+
+/* Hand-drawn Rectangle */
+.hand-rectangle {
+  border-radius: 15px 5px 15px 5px;
+  filter: url(#wobble);
+}
+
+/* Scribble Background Effect */
+.scribble-bg {
+  position: relative;
+  z-index: 1;
+}
+
+.scribble-bg::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 180, 216, 0.05) 10px,
+    rgba(0, 180, 216, 0.05) 20px
+  );
+  z-index: -1;
+  filter: url(#wobble);
+}
+
+/* Handwritten Number Circles */
+.number-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5em;
+  height: 2.5em;
+  border: var(--border-medium) solid var(--color-ink);
+  border-radius: 50%;
+  filter: url(#wobble);
+  background: var(--color-bg);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.number-circle-teal {
+  background: var(--color-teal);
+  color: var(--color-bg);
+}
+
+.number-circle-orange {
+  background: var(--color-orange);
+  color: var(--color-bg);
+}
+
+/* Sticky Note Effect */
+.sticky-note {
+  padding: var(--spacing-md);
+  background: #FFF9C4;
+  border: var(--border-thin) solid var(--color-ink);
+  border-radius: 5px 20px 5px 20px;
+  filter: url(#wobble);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+  transform: rotate(-1deg);
+}
+
+.sticky-note-teal {
+  background: #B2EBF2;
+}
+
+.sticky-note-orange {
+  background: #FFE0B2;
+}

@@ -1,0 +1,113 @@
+{{ define "main" }}
+<div class="container">
+    <!-- Hero Title Box -->
+    <div class="title-box-3d text-center mb-lg">
+        <h1>MY 2ND BRAIN</h1>
+        <p style="margin: 0; font-size: 1.2rem;">Mohammad Faisal's Knowledge Base</p>
+    </div>
+
+    <!-- Search Box -->
+    <div class="search-box">
+        <input
+            type="text"
+            class="search-input"
+            placeholder="Search notes..."
+            id="search-notes"
+            aria-label="Search notes"
+        >
+    </div>
+
+    <!-- Stats Dashboard -->
+    <div class="stats-box mb-lg">
+        <div class="stat-item">
+            <span class="stat-number" id="total-notes">{{ if .Site.Data.sanity.notes }}{{ len .Site.Data.sanity.notes }}{{ else }}0{{ end }}</span>
+            <span class="stat-label">Total Notes</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number" id="total-tags">0</span>
+            <span class="stat-label">Tags</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number" id="total-connections">0</span>
+            <span class="stat-label">Connections</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">{{ now.Format "Jan 2" }}</span>
+            <span class="stat-label">Today</span>
+        </div>
+    </div>
+
+    <!-- Category Navigation (with OpenPeeps placeholders) -->
+    <h2 class="hand-drawn-line hand-underline-teal mb-md">
+        <span class="doodle-star">★</span> Explore by Category <span class="doodle-star">★</span>
+    </h2>
+
+    <div class="notes-grid mb-lg">
+        {{ range $category := slice "Development" "Design" "Learning" "Ideas" }}
+        <div class="category-card">
+            <div class="category-icon">
+                <!-- OpenPeeps SVG will be inserted here -->
+                <svg viewBox="0 0 100 100" class="hand-circle">
+                    <circle cx="50" cy="50" r="40" fill="var(--color-teal)" stroke="var(--color-ink)" stroke-width="2" />
+                    <text x="50" y="60" text-anchor="middle" font-size="40" fill="var(--color-ink)">{{ substr $category 0 1 }}</text>
+                </svg>
+            </div>
+            <span class="category-label">{{ $category }}</span>
+            <span class="category-count">0</span>
+        </div>
+        {{ end }}
+    </div>
+
+    <!-- Recent Notes Section -->
+    <h2 class="hand-drawn-line hand-underline-orange mb-md">
+        Recent Notes
+    </h2>
+
+    <div class="notes-grid" id="recent-notes">
+        {{ $notes := .Site.Data.sanity.notes }}
+        {{ if and $notes (reflect.IsSlice $notes) }}
+            {{ range first 6 $notes }}
+                {{ partial "note-card.html" . }}
+            {{ end }}
+        {{ else }}
+            <!-- Empty State -->
+            <div class="card-empty-state" style="grid-column: 1 / -1;">
+                <div class="card-empty-state-icon">📝</div>
+                <h3>No notes yet!</h3>
+                <p>Start creating notes in Sanity Studio to see them here.</p>
+                <a href="/studio/" class="btn btn-primary mt-md">Open Sanity Studio</a>
+            </div>
+        {{ end }}
+    </div>
+
+    <!-- View All Notes Button -->
+    {{ $notes := .Site.Data.sanity.notes }}
+    {{ if and $notes (reflect.IsSlice $notes) (gt (len $notes) 6) }}
+    <div class="text-center mt-lg">
+        <a href="/notes/" class="btn btn-primary">View All {{ len $notes }} Notes</a>
+    </div>
+    {{ end }}
+
+    <!-- Graph View Teaser -->
+    <div class="mt-xl mb-lg">
+        <div class="title-box-3d">
+            <h2>Explore Your Mind Map</h2>
+        </div>
+        <p class="mt-md" style="font-size: 1.2rem;">
+            Visualize the connections between your notes in an organic, force-directed graph.
+            See how ideas cluster and relate to each other.
+        </p>
+        <div class="text-center mt-md">
+            <a href="/graph/" class="btn btn-secondary">Open Graph View</a>
+        </div>
+    </div>
+</div>
+
+<script>
+// Client-side stats calculation
+document.addEventListener('DOMContentLoaded', function() {
+    // This will be enhanced by sanity-client.js to fetch live data
+    console.log('Dashboard loaded');
+});
+</script>
+{{ end }}
