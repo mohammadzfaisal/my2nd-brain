@@ -17,7 +17,8 @@
     "fuse.js": "^7.0.0"
   },
   "devDependencies": {
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "hugo-bin": "^0.124.1"
   },
   "engines": {
     "node": ">=18.0.0"
