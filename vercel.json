@@ -3,7 +3,7 @@
   "buildCommand": "npm run fetch-sanity && npx hugo",
   "outputDirectory": "public",
   "framework": null,
-  "installCommand": "npm install && npm install -g hugo",
+  "installCommand": "npm install",
   "env": {
     "SANITY_DATASET": "production"
   },
