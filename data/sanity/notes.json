@@ -1,9 +1,982 @@
 {
   "notes": [
     {
+      "_createdAt": "2026-01-12T19:29:09Z",
+      "_id": "eb1c0fb5-cc06-42e3-80df-9b36c6922392",
+      "_updatedAt": "2026-01-12T23:08:10Z",
+      "body": [
+        {
+          "_key": "3f003b62bc38",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "a6f6ee584a08",
+              "_type": "span",
+              "marks": [],
+              "text": "# Python Instance Made Easy "
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "5e121ef81479",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "6107be390a66",
+              "_type": "span",
+              "marks": [],
+              "text": "### Memory as a parking lot and an Instance as a parked car."
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "11da4bcb096f",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "9146fa52e09e",
+              "_type": "span",
+              "marks": [],
+              "text": "Object vs. instance isn't an either/or. It's like asking what's the difference between a \"food\" and a \"vegetable\". They're just different ways of thinking about the same thing. Let me unpack each separately.\nObjects\nEverything is an \"object\" in Python. Equivalently, there is nothing in Python that is NOT an object. Functions, variables, classes, strings, lists, dicts, dict keys, dict values, etc. All objects.\nThe concept is very, very simple - even fundamental - but explaining it to people new to OOP is like explaining water to a fish, or matter to a child: You already intuitively know what it is and have been using it all along. You’ve just never thought about it so directly, and trying to do so makes you think it’s more complex and nuanced than it really is.\nYou can literally think of \"object\" as just a more technical word for \"thing\" when talking about Python code. It's literally that simple. Deceptively simple, so much so that it almost seems complicated. But it’s not. Just remember that "
+            },
+            {
+              "_key": "d036d4d1513c",
+              "_type": "span",
+              "marks": [
+                "highlight"
+              ],
+              "text": "every distinct entity in a chunk of Python code is an object, bar none."
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "db23235ef3b1",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "7de6002e481f",
+              "_type": "span",
+              "marks": [],
+              "text": "In Python, every distinct thing you see in code is an object. This includes:"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "309d8d77d341",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "ba6ec7f55059",
+              "_type": "span",
+              "marks": [],
+              "text": "Values like numbers and strings (e.g., 5, \"hello\")"
+            }
+          ],
+          "level": 2,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "952c227e2a92",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "0ef306bd2a42",
+              "_type": "span",
+              "marks": [],
+              "text": "Functions and classes"
+            }
+          ],
+          "level": 2,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "75628519b59a",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "545857e36659",
+              "_type": "span",
+              "marks": [],
+              "text": "Modules, lists, dictionaries, and other data structures"
+            }
+          ],
+          "level": 2,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "4a4688b19bbc",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "d8a9ff873b33",
+              "_type": "span",
+              "marks": [],
+              "text": "Even more abstract things like the built-in types themselves"
+            }
+          ],
+          "level": 2,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "01434d33b12c",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "92df18031c5e",
+              "_type": "span",
+              "marks": [],
+              "text": "“Distinct entity in a chunk of Python code” means any separate item you refer to or manipulate in that code (variables, literals, functions, etc.) is treated as an object."
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "e240a93f6de6",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "79ac21de1f32",
+              "_type": "span",
+              "marks": [],
+              "text": "“Bar none” emphasizes that this is true without exception: nothing in Python is not an object. Even things you might not think of as objects are, under the hood, objects."
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "64e5f918372d",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "77da80283a21",
+              "_type": "span",
+              "marks": [
+                "em",
+                "strong"
+              ],
+              "text": "In short: Python is object-oriented in that every element you work with is an object."
+            },
+            {
+              "_key": "f3b3533066c6",
+              "_type": "span",
+              "marks": [],
+              "text": "\n\"Instances\" are also objects, but while \"object\" is context-neutral, the term \"instance\" is only defined in reference to a class. Therefore, once you understand classes, you will also understand instances.\nA class in Python is a blueprint, or category of object (for lack of a better word), whereas an \"instance\" is a particular, well, instance of a class. The distinction is easiest to explain by analogy: Say I have 2 siblings, a brother and a sister. My siblings are different from each other in that they're not the same person, yes? Yet at the same time, they are both equally my siblings. Thus, to borrow Python terminology, you could say that my brother and sister are different instances of the same class, where the class is Sibling. Similarly, say I have a bunch of 5 bananas. Each banana is different - all 5 have different shapes, sizes, ages, etc. - yet they are all instances of the class Banana, and none of them are instances of the class Sibling.\nSo the siblings are instances of the Sibling class and the bananas are instances of the Banana class, and all these instances together constitute seven different objects. In fact, since everything in Python is an object, even the Sibling and Banana classes themselves are objects.\n"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "03c7b5b07e9c",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "77da80283a21",
+              "_type": "span",
+              "marks": [
+                "em",
+                "strong"
+              ],
+              "text": "Summary To recap:"
+            },
+            {
+              "_key": "e1dfd936be65",
+              "_type": "span",
+              "marks": [],
+              "text": "\nAll instances are objects, and all objects are instances. However, the difference is that when I say x is an instance, what is implied is “...of the X class”, whereas when I say x is an object, there’s nothing more to it than that.\nHope that helps. Once you wrap your head around these ideas, you will understand how simple they are. It is their simplicity that makes them difficult to explain and grok the first time around.\n"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "449966bfc79e",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "756e013ff0e0",
+              "_type": "span",
+              "marks": [
+                "em"
+              ],
+              "text": "→ Is instance a memory?"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "71efc63498f5",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "77da80283a21",
+              "_type": "span",
+              "marks": [],
+              "text": "No. An "
+            },
+            {
+              "_key": "306dc7322ef3",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "instance is not a “memory” in Python"
+            },
+            {
+              "_key": "7ebb70c9e53d",
+              "_type": "span",
+              "marks": [],
+              "text": ". It is an "
+            },
+            {
+              "_key": "72ceeec9c71c",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "object"
+            },
+            {
+              "_key": "603f49ab7261",
+              "_type": "span",
+              "marks": [],
+              "text": " that "
+            },
+            {
+              "_key": "df843bb4a2b1",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "occupies memory"
+            },
+            {
+              "_key": "27d37c1a82ca",
+              "_type": "span",
+              "marks": [],
+              "text": "."
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "8879f3f0c68a",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "02d0375af587",
+              "_type": "span",
+              "marks": [],
+              "text": "Here is the precise distinction, using correct Python terminology."
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "1e533469e98f",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "4c0500f8a340",
+              "_type": "span",
+              "marks": [],
+              "text": "What an instance actually is"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "263c561ac55c",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "ec5f8dc5c0a3",
+              "_type": "span",
+              "marks": [],
+              "text": "In Python, an "
+            },
+            {
+              "_key": "6fe7680df925",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "instance"
+            },
+            {
+              "_key": "3395da5985f4",
+              "_type": "span",
+              "marks": [],
+              "text": " is a "
+            },
+            {
+              "_key": "e9f59ddeea85",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "runtime object created from a class"
+            },
+            {
+              "_key": "873b4398dc69",
+              "_type": "span",
+              "marks": [],
+              "text": "."
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "927df8379e08",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "144132071b26",
+              "_type": "span",
+              "marks": [],
+              "text": "Example:"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "8fc39601f09a",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "89056e24746f",
+              "_type": "span",
+              "marks": [
+                "code"
+              ],
+              "text": "class User:\n    pass\n\nu = User()"
+            },
+            {
+              "_key": "0b9c3b78e5cd",
+              "_type": "span",
+              "marks": [],
+              "text": "\n"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "2c316a6ac94c",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "26cbf67df0bb",
+              "_type": "span",
+              "marks": [
+                "code"
+              ],
+              "text": "User"
+            },
+            {
+              "_key": "b038c86fbeff",
+              "_type": "span",
+              "marks": [],
+              "text": " → a "
+            },
+            {
+              "_key": "57a181ff15d4",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "class"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "d677f81c5c86",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "4856004b2110",
+              "_type": "span",
+              "marks": [
+                "code"
+              ],
+              "text": "u"
+            },
+            {
+              "_key": "6eab44a588b7",
+              "_type": "span",
+              "marks": [],
+              "text": " → an "
+            },
+            {
+              "_key": "fdb7da34b017",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "instance of User"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "4e1fed20099a",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "77480ca403b5",
+              "_type": "span",
+              "marks": [
+                "code"
+              ],
+              "text": "u"
+            },
+            {
+              "_key": "d86dfa23a11d",
+              "_type": "span",
+              "marks": [],
+              "text": " is an "
+            },
+            {
+              "_key": "fc6d7a8a0417",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "object stored in memory"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "401e7b52dc8c",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "4c19558397ea",
+              "_type": "span",
+              "marks": [],
+              "text": "How memory relates to instances"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "e24771b75e6b",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "a6e0d9ef0012",
+              "_type": "span",
+              "marks": [],
+              "text": "Memory is the "
+            },
+            {
+              "_key": "92302bec9a42",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "storage resource"
+            },
+            {
+              "_key": "e397f3b0a33c",
+              "_type": "span",
+              "marks": [],
+              "text": "; instances are "
+            },
+            {
+              "_key": "944fa23d87d9",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "entities stored in that resource"
+            },
+            {
+              "_key": "abf9b0f83a32",
+              "_type": "span",
+              "marks": [],
+              "text": "."
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "9769a14c69ae",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "544f9b694b5a",
+              "_type": "span",
+              "marks": [],
+              "text": "When you create an instance:"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "ad4fd0ca9497",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "863847b512c2",
+              "_type": "span",
+              "marks": [],
+              "text": "Python allocates memory on the heap"
+            }
+          ],
+          "level": 1,
+          "listItem": "number",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "8492246bede2",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "ff94d175d065",
+              "_type": "span",
+              "marks": [],
+              "text": "The instance object is placed there"
+            }
+          ],
+          "level": 1,
+          "listItem": "number",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "a6c4bb423227",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "c3b32a2d3edf",
+              "_type": "span",
+              "marks": [],
+              "text": "A reference ("
+            },
+            {
+              "_key": "48f4f1524f64",
+              "_type": "span",
+              "marks": [
+                "code"
+              ],
+              "text": "u"
+            },
+            {
+              "_key": "a07618e7cb81",
+              "_type": "span",
+              "marks": [],
+              "text": ") points to that memory location"
+            }
+          ],
+          "level": 1,
+          "listItem": "number",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "13242be4fc9d",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "5ec3bd63157f",
+              "_type": "span",
+              "marks": [],
+              "text": "So:"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "aca53d79a5b0",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "f70adfcc7e46",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "Memory"
+            },
+            {
+              "_key": "908ed7119882",
+              "_type": "span",
+              "marks": [],
+              "text": " → where data lives"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "dbe830533b9e",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "90cab4c52cde",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "Instance"
+            },
+            {
+              "_key": "b7e64a212c87",
+              "_type": "span",
+              "marks": [],
+              "text": " → what lives there"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "0daabb8e1f56",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "8f88f0791cc7",
+              "_type": "span",
+              "marks": [],
+              "text": "Why the confusion happens"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "15becf6734f4",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "a4e6d86ea4ca",
+              "_type": "span",
+              "marks": [],
+              "text": "People sometimes say things like: “An instance is stored in memory”. That statement is correct."
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "70ba4ecb028d",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "9b273f85c4a6",
+              "_type": "span",
+              "marks": [],
+              "text": "But saying: “An instance "
+            },
+            {
+              "_key": "7cf7c1115b7f",
+              "_type": "span",
+              "marks": [
+                "em"
+              ],
+              "text": "is"
+            },
+            {
+              "_key": "4eb094a58870",
+              "_type": "span",
+              "marks": [],
+              "text": " memory” is incorrect, just like saying: “A file "
+            },
+            {
+              "_key": "a0492c1ffd5e",
+              "_type": "span",
+              "marks": [
+                "em"
+              ],
+              "text": "is"
+            },
+            {
+              "_key": "af52595e51a1",
+              "_type": "span",
+              "marks": [],
+              "text": " a hard drive”"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "4f6f5b96599d",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "c737c46d7840",
+              "_type": "span",
+              "marks": [
+                "strong",
+                "em"
+              ],
+              "text": "Precise terminology (important)"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "37bdbef2a318",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "fe3e0725db45",
+              "_type": "span",
+              "marks": [
+                "em"
+              ],
+              "text": "Term:"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "48efcf44bacb",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "fe7fff2b26fc",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "→ Memory: "
+            },
+            {
+              "_key": "d96eb08141a6",
+              "_type": "span",
+              "marks": [],
+              "text": "Storage space managed by Python / OS"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "e4222938972f",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "7b38725eb3ab",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "→ Object: "
+            },
+            {
+              "_key": "889da536d035",
+              "_type": "span",
+              "marks": [],
+              "text": "A runtime entity (everything in Python is an object)"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "37896735107b",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "9c69e77e1b64",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "→ Instance: "
+            },
+            {
+              "_key": "3742fe038924",
+              "_type": "span",
+              "marks": [],
+              "text": "A specific object created from a class"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "673e1cff43bb",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "b9dd46106c5b",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "→ Reference: "
+            },
+            {
+              "_key": "1b1330009648",
+              "_type": "span",
+              "marks": [],
+              "text": "A name pointing to an object in memory"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "3415adf5895d",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "6eabbe5a1262",
+              "_type": "span",
+              "marks": [],
+              "text": "One-sentence correct definition"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "805e92cc21ab",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "24f59c1b39b6",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "A Python instance is an object created from a class that occupies memory, but it is not memory itself."
+            }
+          ],
+          "markDefs": [],
+          "style": "blockquote"
+        },
+        {
+          "_key": "fefd8d52bf6b",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "c54f9fff4a58",
+              "_type": "span",
+              "marks": [],
+              "text": ""
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        }
+      ],
+      "category": "learning",
+      "isFavorite": false,
+      "references": null,
+      "slug": {
+        "_type": "slug",
+        "current": "python-instance"
+      },
+      "status": "active",
+      "tags": [
+        "Python"
+      ],
+      "title": "Python Instance"
+    },
+    {
       "_createdAt": "2026-01-11T11:02:58Z",
       "_id": "9839b585-6058-406e-9a3b-142c33f2528f",
-      "_updatedAt": "2026-01-12T04:48:19Z",
+      "_updatedAt": "2026-01-12T23:02:19Z",
       "body": [
         {
           "_key": "5b897b8368a2",
@@ -2328,10 +3301,12 @@
         "current": "git-makes-sense"
       },
       "status": "active",
-      "tags": null,
+      "tags": [
+        "Git"
+      ],
       "title": "Git Makes Sense"
     }
   ],
-  "fetchedAt": "2026-01-12T04:48:45.549Z",
-  "totalCount": 1
+  "fetchedAt": "2026-01-12T23:08:27.906Z",
+  "totalCount": 2
 }

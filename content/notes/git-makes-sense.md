@@ -4,6 +4,7 @@ date: "2026-01-11T11:02:58Z"
 category: "learning"
 isFavorite: true
 status: "active"
+tags: ["Git"]
 ---
 
 # A Guide to the Core Concepts

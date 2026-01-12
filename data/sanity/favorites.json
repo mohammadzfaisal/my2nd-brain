@@ -3,7 +3,7 @@
     {
       "_createdAt": "2026-01-11T11:02:58Z",
       "_id": "9839b585-6058-406e-9a3b-142c33f2528f",
-      "_updatedAt": "2026-01-12T04:48:19Z",
+      "_updatedAt": "2026-01-12T23:02:19Z",
       "body": [
         {
           "_key": "5b897b8368a2",
@@ -2328,10 +2328,12 @@
         "current": "git-makes-sense"
       },
       "status": "active",
-      "tags": null,
+      "tags": [
+        "Git"
+      ],
       "title": "Git Makes Sense"
     }
   ],
-  "fetchedAt": "2026-01-12T04:48:46.321Z",
+  "fetchedAt": "2026-01-12T23:08:28.700Z",
   "totalCount": 1
 }
