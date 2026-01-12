@@ -1829,7 +1829,7 @@
               "_key": "32bb13f45857",
               "_type": "span",
               "marks": [],
-              "text": ", only to find their fix has vanished. Because it was made in a detached HEAD state, no branch was tracking it, and it was eventually deleted by Git's garbage collection process—two hours of work, gone."
+              "text": ", only to find their fix has vanished. Because it was made in a detached HEAD state, no branch was tracking it, and it was eventually deleted by Git's garbage collection process���two hours of work, gone."
             }
           ],
           "markDefs": [],
@@ -3307,6 +3307,6 @@
       "title": "Git Makes Sense"
     }
   ],
-  "fetchedAt": "2026-01-12T23:08:27.906Z",
+  "fetchedAt": "2026-01-12T23:11:49.004Z",
   "totalCount": 2
 }

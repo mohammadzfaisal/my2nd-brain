@@ -99,6 +99,12 @@ These are the required pieces for a fully functional Sanity → Hugo pipeline:
 4. Run Hugo:
    - `hugo server -D`
 
+## Publish from Sanity (quick checklist)
+
+1. Edit or create a note in Sanity Studio, then Publish.
+2. Run `npm run fetch-sanity` in the repo root.
+3. Commit + push to deploy on Vercel.
+
 ## Notes about unpublishing
 
 - Unpublishing removes notes from Sanity,
