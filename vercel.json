@@ -5,16 +5,7 @@
   "framework": null,
   "installCommand": "npm install && npm install -g hugo",
   "env": {
-    "SANITY_PROJECT_ID": "@sanity-project-id",
-    "SANITY_DATASET": "production",
-    "SANITY_TOKEN": "@sanity-token"
-  },
-  "build": {
-    "env": {
-      "SANITY_PROJECT_ID": "@sanity-project-id",
-      "SANITY_DATASET": "production",
-      "SANITY_TOKEN": "@sanity-token"
-    }
+    "SANITY_DATASET": "production"
   },
   "headers": [
     {
