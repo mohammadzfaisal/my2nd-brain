@@ -1,14 +1,15 @@
 <div class="site-header-content">
     <h1 class="site-title">
-        <a href="/" style="border: none;">{{ .Site.Title }}</a>
+        <a href="/"><span class="title-highlight">{{ .Site.Title }}</span></a>
     </h1>
 
     <nav class="site-nav">
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/notes/">All Notes</a></li>
-            <li><a href="/graph/">Graph View</a></li>
-            <li><a href="/studio/" target="_blank">Sanity Studio</a></li>
+            <li><a href="/" aria-current="{{ if .IsHome }}page{{ end }}">Home</a></li>
+            <li><a href="/notes/" aria-current="{{ if eq .Section "notes" }}page{{ end }}">Notes</a></li>
+            <li><a href="/favorites/" aria-current="{{ if eq .Section "favorites" }}page{{ end }}">Favorites</a></li>
+            <li><a href="/archive/" aria-current="{{ if eq .Section "archive" }}page{{ end }}">Archive</a></li>
+            <li><a href="/graph/" aria-current="{{ if eq .Section "graph" }}page{{ end }}">Graph</a></li>
         </ul>
     </nav>
 </div>

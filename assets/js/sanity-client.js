@@ -12,6 +12,8 @@
         useCdn: true
     };
 
+    let cachedNotes = null;
+
     // Base URL for Sanity API
     const getApiUrl = () => {
         return `https://${SANITY_CONFIG.projectId}.api.sanity.io/v${SANITY_CONFIG.apiVersion}/data/query/${SANITY_CONFIG.dataset}`;
@@ -49,6 +51,7 @@
             title,
             slug,
             body,
+            category,
             tags,
             references[]->{_id, title, slug},
             _createdAt,
@@ -59,6 +62,12 @@
         return data.result || [];
     }
 
+    async function getNotes() {
+        if (cachedNotes) return cachedNotes;
+        cachedNotes = await fetchAllNotes();
+        return cachedNotes;
+    }
+
     // Fetch single note with backlinks
     async function fetchNoteWithBacklinks(slug) {
         const query = `*[_type == "note" && slug.current == $slug][0]{
@@ -66,6 +75,7 @@
             title,
             slug,
             body,
+            category,
             tags,
             references[]->{_id, title, slug},
             "backlinks": *[_type == "note" && references[]._ref == ^._id]{
@@ -89,6 +99,7 @@
             slug,
             tags,
             "referenceIds": references[]._ref,
+            category,
             _createdAt
         }`;
 
@@ -98,7 +109,7 @@
 
     // Update stats on dashboard
     async function updateDashboardStats() {
-        const notes = await fetchAllNotes();
+        const notes = await getNotes();
 
         // Total notes
         const totalNotesEl = document.getElementById('total-notes');
@@ -132,7 +143,169 @@
             totalConnectionsEl.textContent = totalConnections;
         }
 
+        if (notes.length > 0) {
+            updateCategoryCounts(notes);
+        }
+
         return notes;
+    }
+
+    function updateCategoryCounts(notes) {
+        if (!notes || notes.length === 0) return;
+        const counts = {};
+
+        notes.forEach(note => {
+            const category = (note.category || 'other').toString().toLowerCase();
+            counts[category] = (counts[category] || 0) + 1;
+        });
+
+        document.querySelectorAll('.category-card').forEach(card => {
+            const countEl = card.querySelector('.category-count');
+            if (!countEl) return;
+
+            const key = (card.dataset.category || '')
+                .toString()
+                .trim()
+                .toLowerCase();
+            const label = card.querySelector('.category-label');
+            const fallback = label ? label.textContent.trim().toLowerCase() : '';
+            const categoryKey = key || fallback || 'other';
+
+            countEl.textContent = counts[categoryKey] || 0;
+        });
+    }
+
+    function getPreviewText(body) {
+        if (!Array.isArray(body)) return '';
+        for (const block of body) {
+            if (block && block._type === 'block') {
+                const text = (block.children || []).map(child => child.text || '').join('').trim();
+                if (text) return text;
+            }
+        }
+        return '';
+    }
+
+    function renderNotesList(notes) {
+        renderNotesListTo('recent-notes', notes);
+    }
+
+    function renderNotesListTo(containerId, notes) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        if (!notes || notes.length === 0) {
+            container.innerHTML = `
+                <div class="card-empty-state" style="grid-column: 1 / -1;">
+                    <div class="card-empty-state-icon">??</div>
+                    <h3>No notes in this category yet!</h3>
+                    <p>Create a note in Sanity Studio to see it here.</p>
+                    <a href="/studio/" class="btn btn-primary mt-md">Open Sanity Studio</a>
+                </div>
+            `;
+            return;
+        }
+
+        container.innerHTML = notes.map(note => {
+            const slug = (note.slug && note.slug.current) ? note.slug.current : (note.slug || '');
+            const title = note.title || 'Untitled';
+            const preview = getPreviewText(note.body) || 'No content preview available';
+            const tags = Array.isArray(note.tags) ? note.tags : [];
+            const refCount = Array.isArray(note.references) ? note.references.length : 0;
+            const date = note._createdAt ? new Date(note._createdAt).toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric'
+            }) : '';
+
+            const tagsHtml = tags.length
+                ? `<div class="note-tags">${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>`
+                : '';
+            const refsHtml = refCount ? `<span class="connection-count">${refCount}</span>` : '';
+            const dateHtml = date ? `<span class="note-date">${date}</span>` : '';
+
+            return `
+                <article class="note-card">
+                    <div class="note-card-header">
+                        <h3 class="note-card-title">
+                            <a href="/notes/${slug}/" style="border: none; color: inherit;">
+                                ${title}
+                            </a>
+                        </h3>
+                    </div>
+                    <div class="note-card-body">${preview}</div>
+                    <div class="note-card-footer">
+                        ${tagsHtml}
+                        ${refsHtml}
+                        ${dateHtml}
+                    </div>
+                </article>
+            `;
+        }).join('');
+    }
+
+    function refreshLiveNotes(notes) {
+        if (!notes || notes.length === 0) return;
+
+        updateCategoryCounts(notes);
+
+        const recentNotes = notes.slice(0, 6);
+        renderNotesListTo('recent-notes', recentNotes);
+
+        if (document.getElementById('notes-list')) {
+            renderNotesListTo('notes-list', notes);
+        }
+    }
+
+    function initCategoryFilters() {
+        const cards = document.querySelectorAll('.category-card');
+        if (!cards.length) return;
+
+        const notesContainer = document.getElementById('recent-notes');
+        const renderedCards = notesContainer ? notesContainer.querySelectorAll('.note-card') : [];
+        const hasRenderedNotes = renderedCards.length > 0;
+
+        let activeCategory = null;
+
+        cards.forEach(card => {
+            card.addEventListener('click', async () => {
+                const label = card.querySelector('.category-label');
+                const category = (card.dataset.category || (label && label.textContent) || 'other')
+                    .toString()
+                    .trim()
+                    .toLowerCase();
+
+                if (hasRenderedNotes) {
+                    const nextCategory = activeCategory === category ? null : category;
+                    activeCategory = nextCategory;
+
+                    renderedCards.forEach(noteCard => {
+                        const noteCategory = (noteCard.dataset.category || 'other')
+                            .toString()
+                            .trim()
+                            .toLowerCase();
+                        const shouldShow = !activeCategory || noteCategory === activeCategory;
+                        noteCard.style.display = shouldShow ? 'flex' : 'none';
+                    });
+                    return;
+                }
+
+                const notes = await getNotes();
+
+                if (activeCategory === category) {
+                    activeCategory = null;
+                    renderNotesList(notes);
+                    return;
+                }
+
+                activeCategory = category;
+                const filtered = notes.filter(note => {
+                    const noteCategory = (note.category || 'other').toString().toLowerCase();
+                    return noteCategory === category;
+                });
+                renderNotesList(filtered);
+            });
+        });
     }
 
     // Render portable text (simplified)
@@ -244,5 +417,13 @@
 
         // Initialize search
         initSearch();
+
+        // Category filters (home page)
+        initCategoryFilters();
+
+        // Live refresh for lists (hybrid mode)
+        getNotes().then((notes) => {
+            refreshLiveNotes(notes);
+        });
     });
 })();

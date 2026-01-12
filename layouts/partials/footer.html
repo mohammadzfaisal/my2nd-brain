@@ -1,12 +1,14 @@
 <div class="footer-content">
-    <p>
-        <span class="hand-drawn-line hand-underline-teal">{{ .Site.Params.author }}</span>
-        &copy; {{ now.Year }} &bull;
-        <span class="marker-highlight marker-highlight-orange">Powered by Hugo + Sanity.io</span>
+    <p class="hand-drawn-line">
+        <span class="doodle-star">★</span> {{ .Site.Params.author }} &copy; {{ now.Year }} <span class="doodle-star">★</span>
     </p>
-    <p style="margin-top: 1rem;">
-        <span class="doodle-star">★</span>
-        Built with a hand-drawn sketchnote aesthetic
-        <span class="doodle-star">★</span>
+    <p style="margin-top: 0.5rem;">
+        Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> + <a href="https://www.sanity.io/" target="_blank">Sanity.io</a>
+    </p>
+    <p style="margin-top: 0.5rem;">
+        <a href="/about/">About</a>
+    </p>
+    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--color-text-secondary);">
+        <span class="marker-highlight-orange">Built with a terminal-inspired aesthetic</span>
     </p>
 </div>

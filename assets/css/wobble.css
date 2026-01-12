@@ -1,303 +1,208 @@
-/* ============================================
-   Wobble Effects - Hand-drawn Aesthetic
-   ============================================ */
+/* ========================================
+   WOBBLE & HAND-DRAWN EFFECTS
+   Sketchnote Aesthetic Utilities
+   ======================================== */
 
-/* Wobble Border Variations */
-.wobble-border-1 {
-  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+/* Hand-drawn decorative elements */
+.doodle-star {
+  color: var(--color-orange);
+  display: inline-block;
+  transform: rotate(-15deg);
+  font-size: 1.2em;
 }
 
-.wobble-border-2 {
-  border-radius: 240px 25px 210px 20px / 20px 210px 25px 240px;
-}
-
-.wobble-border-3 {
-  border-radius: 220px 30px 230px 18px / 25px 200px 20px 250px;
-}
-
-.wobble-border-4 {
-  border-radius: 200px 40px 190px 30px / 30px 190px 40px 200px;
-}
-
-.wobble-border-5 {
-  border-radius: 235px 20px 215px 25px / 18px 230px 22px 220px;
-}
-
-/* Random Rotation for Natural Look */
-.rotate-slight-left {
-  transform: rotate(-1deg);
-}
-
-.rotate-slight-right {
-  transform: rotate(1deg);
-}
-
-.rotate-medium-left {
-  transform: rotate(-2deg);
-}
-
-.rotate-medium-right {
-  transform: rotate(2deg);
-}
-
-/* Hand-drawn Line Styles */
 .hand-drawn-line {
   position: relative;
-  display: inline-block;
 }
 
-.hand-drawn-line::after {
+.hand-underline-teal::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -5px;
   left: 0;
-  right: 0;
+  width: 100%;
   height: 3px;
-  background: var(--color-ink);
+  background-color: var(--color-teal);
   filter: url(#wobble);
-}
-
-/* Hand-drawn underline with color variations */
-.hand-underline-teal::after {
-  background: var(--color-teal);
 }
 
 .hand-underline-orange::after {
-  background: var(--color-orange);
-}
-
-.hand-underline-red::after {
-  background: var(--color-red);
-}
-
-/* Marker Highlight Effect */
-.marker-highlight {
-  position: relative;
-  display: inline;
-  padding: 0.1em 0.3em;
-}
-
-.marker-highlight::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: -0.2em;
-  right: -0.2em;
-  bottom: 0;
-  background: var(--color-teal);
-  opacity: 0.3;
-  filter: url(#wobble);
-  z-index: -1;
-  transform: rotate(-0.5deg) skewX(-5deg);
-}
-
-.marker-highlight-orange::before {
-  background: var(--color-orange);
-}
-
-.marker-highlight-red::before {
-  background: var(--color-red);
-}
-
-/* Hand-drawn Bullets */
-.hand-bullet {
-  position: relative;
-  padding-left: 2rem;
-}
-
-.hand-bullet::before {
-  content: '●';
-  position: absolute;
+  bottom: -5px;
   left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-orange);
+  filter: url(#wobble);
+}
+
+/* Wobbly borders with irregular radius */
+.wobbly-border {
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+
+.wobbly-border-alt {
+  border-radius: 15px 255px 15px 225px / 225px 15px 255px 15px;
+}
+
+/* 3D Title Box */
+.title-3d {
+  border: 4px solid var(--color-text);
+  box-shadow:
+    4px 4px 0 var(--color-teal),
+    8px 8px 0 rgba(0, 180, 216, 0.5);
+  padding: 2.5rem 2rem;
+  background: var(--color-bg);
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.title-3d-orange {
+  border: 4px solid var(--color-text);
+  box-shadow:
+    4px 4px 0 var(--color-orange),
+    8px 8px 0 rgba(255, 159, 28, 0.5);
+  padding: 2.5rem 2rem;
+  background: var(--color-bg);
+  margin-bottom: 1.5rem;
+}
+
+/* Marker highlight effect */
+.marker-highlight {
+  background: linear-gradient(transparent 50%, var(--color-orange) 50%);
+  padding: 0 0.25rem;
+}
+
+.marker-highlight-teal {
+  background: linear-gradient(transparent 50%, var(--color-teal) 50%);
+  padding: 0 0.25rem;
+}
+
+/* Hand-drawn emphasis */
+.hand-emphasis {
+  font-weight: 700;
+  color: var(--color-red);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Wobbly note cards */
+.note-card.wobbly {
+  filter: url(#wobble);
+  transition: transform 0.2s ease;
+}
+
+.note-card.wobbly:hover {
+  transform: rotate(1deg) scale(1.02);
+}
+
+/* Sketch-style borders for inputs */
+input.sketch-input,
+textarea.sketch-input {
+  border: 2px solid var(--color-text);
+  border-radius: 3px;
+  filter: url(#wobble);
+  font-family: var(--font-primary);
+  padding: 0.5rem;
+}
+
+/* Hand-drawn button */
+.btn-sketch {
+  border: 3px solid var(--color-text);
+  background: var(--color-bg);
+  padding: 0.5rem 1.5rem;
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  filter: url(#wobble);
+}
+
+.btn-sketch:hover {
+  background: var(--color-teal);
+  transform: translate(-2px, -2px);
+  box-shadow: 3px 3px 0 var(--color-text);
+}
+
+.btn-sketch:active {
+  transform: translate(0, 0);
+  box-shadow: 1px 1px 0 var(--color-text);
+}
+
+/* Hand-drawn tabs */
+.tab-sketch {
+  border: 2px solid var(--color-text);
+  border-bottom: none;
+  padding: 0.5rem 1rem;
+  background: var(--color-bg);
+  filter: url(#wobble);
+  margin-right: 0.25rem;
+  cursor: pointer;
+}
+
+.tab-sketch.active {
+  background: var(--color-teal);
+  font-weight: 700;
+}
+
+/* Doodle decorations */
+.doodle-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-text);
+  border-radius: 50%;
+  display: inline-block;
+  filter: url(#wobble);
+}
+
+.doodle-arrow::after {
+  content: '→';
   color: var(--color-orange);
   font-size: 1.5em;
-  filter: url(#wobble);
-}
-
-.hand-bullet-teal::before {
-  color: var(--color-teal);
-}
-
-.hand-bullet-red::before {
-  color: var(--color-red);
-}
-
-/* Hand-drawn Checkbox */
-.hand-checkbox {
-  position: relative;
-  padding-left: 2.5rem;
-}
-
-.hand-checkbox::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.2em;
-  width: 1.5em;
-  height: 1.5em;
-  border: var(--border-medium) solid var(--color-ink);
-  border-radius: 8px 3px 8px 3px;
-  filter: url(#wobble);
-}
-
-.hand-checkbox.checked::after {
-  content: '✓';
-  position: absolute;
-  left: 0.2em;
-  top: 0;
-  font-size: 1.3em;
-  color: var(--color-teal);
-  font-weight: 700;
-}
-
-/* Doodle Decorations */
-.doodle-star {
   display: inline-block;
-  color: var(--color-orange);
-  filter: url(#wobble-text);
-  animation: twinkle 2s ease-in-out infinite;
+  transform: rotate(-5deg);
 }
 
-@keyframes twinkle {
-  0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
-  50% { opacity: 0.7; transform: scale(1.1) rotate(5deg); }
-}
-
-.doodle-arrow {
-  display: inline-block;
-  filter: url(#wobble-strong);
-}
-
-/* Hand-drawn Divider */
-.hand-divider {
-  position: relative;
-  height: 3px;
-  margin: var(--spacing-lg) 0;
-  background: var(--color-ink);
+/* Sketch-style divider */
+.sketch-divider {
+  height: 2px;
+  background: var(--color-text);
   filter: url(#wobble);
-  border-radius: 50%;
+  margin: 2rem 0;
 }
 
-.hand-divider-dashed {
-  background: repeating-linear-gradient(
-    to right,
-    var(--color-ink) 0px,
-    var(--color-ink) 20px,
-    transparent 20px,
-    transparent 40px
-  );
+/* Hand-drawn badge */
+.badge-sketch {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid var(--color-text);
+  border-radius: 50px;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  filter: url(#wobble);
 }
 
-/* Sketch Shadow Effects */
-.sketch-shadow-teal {
-  position: relative;
-}
-
-.sketch-shadow-teal::after {
-  content: '';
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  right: -6px;
-  bottom: -6px;
+.badge-teal {
   background: var(--color-teal);
-  opacity: 0.2;
-  filter: url(#wobble);
-  z-index: -1;
 }
 
-.sketch-shadow-orange::after {
+.badge-orange {
   background: var(--color-orange);
 }
 
-/* Shaky Animation for Interactive Elements */
-@keyframes shake-subtle {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(-1px, 1px) rotate(-0.5deg); }
-  50% { transform: translate(1px, -1px) rotate(0.5deg); }
-  75% { transform: translate(-1px, -1px) rotate(-0.3deg); }
+.badge-red {
+  background: var(--color-red);
+  color: white;
 }
 
-.shaky-on-hover:hover {
-  animation: shake-subtle 0.5s ease-in-out infinite;
+/* Wobble animation for interactive elements */
+@keyframes wobble-rotate {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
 }
 
-/* Hand-drawn Circle */
-.hand-circle {
-  border-radius: 50%;
-  filter: url(#wobble);
-}
-
-/* Hand-drawn Rectangle */
-.hand-rectangle {
-  border-radius: 15px 5px 15px 5px;
-  filter: url(#wobble);
-}
-
-/* Scribble Background Effect */
-.scribble-bg {
-  position: relative;
-  z-index: 1;
-}
-
-.scribble-bg::before {
-  content: '';
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
-  background-image: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    rgba(0, 180, 216, 0.05) 10px,
-    rgba(0, 180, 216, 0.05) 20px
-  );
-  z-index: -1;
-  filter: url(#wobble);
-}
-
-/* Handwritten Number Circles */
-.number-circle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5em;
-  height: 2.5em;
-  border: var(--border-medium) solid var(--color-ink);
-  border-radius: 50%;
-  filter: url(#wobble);
-  background: var(--color-bg);
-  font-weight: 700;
-  font-size: 1.2rem;
-}
-
-.number-circle-teal {
-  background: var(--color-teal);
-  color: var(--color-bg);
-}
-
-.number-circle-orange {
-  background: var(--color-orange);
-  color: var(--color-bg);
-}
-
-/* Sticky Note Effect */
-.sticky-note {
-  padding: var(--spacing-md);
-  background: #FFF9C4;
-  border: var(--border-thin) solid var(--color-ink);
-  border-radius: 5px 20px 5px 20px;
-  filter: url(#wobble);
-  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
-  transform: rotate(-1deg);
-}
-
-.sticky-note-teal {
-  background: #B2EBF2;
-}
-
-.sticky-note-orange {
-  background: #FFE0B2;
+.wobble-hover:hover {
+  animation: wobble-rotate 0.3s ease-in-out;
 }

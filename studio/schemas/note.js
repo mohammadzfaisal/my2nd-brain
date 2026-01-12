@@ -135,6 +135,27 @@ export default {
       type: 'boolean',
       description: 'Display this note prominently on the homepage',
       initialValue: false
+    },
+    {
+      name: 'isFavorite',
+      title: 'Favorite',
+      type: 'boolean',
+      description: 'Mark this note as a favorite',
+      initialValue: false
+    },
+    {
+      name: 'status',
+      title: 'Status',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Active', value: 'active' },
+          { title: 'Archived', value: 'archived' }
+        ],
+        layout: 'radio'
+      },
+      description: 'Content status for filtering',
+      initialValue: 'active'
     }
   ],
   preview: {

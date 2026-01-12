@@ -1,10 +1,9 @@
 {{ define "main" }}
 <div class="container">
-    <!-- Page Title -->
     <div class="section">
         <div class="section-head is-first">
             <div class="section-head-main">
-                <div class="section-label">Notes</div>
+                <div class="section-label">Favorites</div>
                 <h1 class="section-title hero-title">{{ .Title }}</h1>
                 {{ if .Params.description }}
                 <p class="section-copy">{{ .Params.description }}</p>
@@ -13,28 +12,27 @@
         </div>
     </div>
 
-    <!-- Search & Filter Controls -->
     <div class="search-box section">
         <input
             type="text"
             class="search-input"
-            placeholder="Search notes..."
+            placeholder="Search favorites..."
             id="search-notes"
-            aria-label="Search notes"
+            aria-label="Search favorites"
         >
     </div>
 
-    <!-- Notes Count -->
+    {{ $notes := where .Pages "Params.isFavorite" true }}
+
     <div class="mb-md">
         <span class="sticky-note sticky-note-teal" style="display: inline-block;">
-            <strong>{{ len .Pages }}</strong> notes found
+            <strong>{{ len $notes }}</strong> favorites found
         </span>
     </div>
 
-    <!-- Notes Grid -->
-    {{ if .Pages }}
+    {{ if $notes }}
     <div class="notes-grid" id="notes-list">
-        {{ range .Pages }}
+        {{ range $notes }}
         <article class="note-card">
             <div class="note-card-header">
                 <h3 class="note-card-title">
@@ -65,19 +63,16 @@
         {{ end }}
     </div>
     {{ else }}
-    <!-- Empty State -->
     <div class="card-empty-state">
-        <div class="card-empty-state-icon">📝</div>
-        <h3>No notes yet!</h3>
-        <p>Start creating notes in Sanity Studio to see them here.</p>
-        <a href="/studio/" class="btn btn-primary mt-md">Open Sanity Studio</a>
+        <div class="card-empty-state-icon">??</div>
+        <h3>No favorites yet!</h3>
+        <p>Mark notes as favorites in Sanity to see them here.</p>
         <p class="empty-signature">Built by <a href="/about/">Mohammad Faisal</a></p>
     </div>
     {{ end }}
 </div>
 
 <script>
-// Client-side search
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('search-notes');
     const notesList = document.getElementById('notes-list');

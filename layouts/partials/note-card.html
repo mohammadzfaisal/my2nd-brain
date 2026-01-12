@@ -3,8 +3,10 @@
 {{ $body := .body | default "" }}
 {{ $tags := .tags | default slice }}
 {{ $references := .references | default slice }}
+{{ $category := .category | default "" }}
+{{ $createdAt := .createdAt | default ._createdAt }}
 
-<article class="note-card">
+<article class="note-card" data-category="{{ lower $category }}">
     <div class="note-card-header">
         <h3 class="note-card-title">
             <a href="/notes/{{ $slug }}/" style="border: none; color: inherit;">
@@ -43,8 +45,8 @@
         <span class="connection-count">{{ len $references }}</span>
         {{ end }}
 
-        {{ if .createdAt }}
-        <span class="note-date">{{ dateFormat "Jan 2, 2006" .createdAt }}</span>
+        {{ if $createdAt }}
+        <span class="note-date">{{ dateFormat "Jan 2, 2006" $createdAt }}</span>
         {{ end }}
     </div>
 </article>

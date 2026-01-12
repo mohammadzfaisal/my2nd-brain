@@ -109,7 +109,7 @@
         return { nodes, edges };
     }
 
-    // Graph visual style with hand-drawn aesthetic
+    // Graph visual style with terminal aesthetic
     function getGraphStyle() {
         return [
             {
@@ -118,32 +118,34 @@
                     'label': 'data(label)',
                     'text-valign': 'center',
                     'text-halign': 'center',
-                    'font-family': 'Architects Daughter, cursive',
+                    'font-family': 'Fira Code, JetBrains Mono, Monaco, Consolas, Ubuntu Mono, monospace',
                     'font-size': '14px',
                     'text-wrap': 'wrap',
-                    'text-max-width': '100px',
-                    'color': '#1A1A1A',
-                    'background-color': '#00B4D8',
+                    'text-max-width': '120px',
+                    'text-transform': 'uppercase',
+                    'color': '#45372b',
+                    'background-color': '#ff6347',
                     'border-width': 3,
-                    'border-color': '#1A1A1A',
+                    'border-color': '#45372b',
                     'width': 'label',
                     'height': 'label',
                     'padding': '15px',
-                    'text-transform': 'uppercase',
                     'shape': 'roundrectangle'
                 }
             },
             {
                 selector: 'node[connectionCount >= 3]',
                 style: {
-                    'background-color': '#FF9F1C', // Orange for hub nodes
+                    'background-color': '#ff8b73',
                     'border-width': 4
                 }
             },
             {
                 selector: 'node:selected',
                 style: {
-                    'background-color': '#E63946', // Red for selected
+                    'background-color': '#45372b',
+                    'border-color': '#ff6347',
+                    'color': '#fff7f1',
                     'border-width': 5,
                     'z-index': 999
                 }
@@ -152,10 +154,10 @@
                 selector: 'edge',
                 style: {
                     'width': 2,
-                    'line-color': '#1A1A1A',
+                    'line-color': '#45372b',
                     'curve-style': 'bezier',
                     'target-arrow-shape': 'triangle',
-                    'target-arrow-color': '#1A1A1A',
+                    'target-arrow-color': '#45372b',
                     'arrow-scale': 1.2,
                     'opacity': 0.6
                 }
@@ -163,8 +165,8 @@
             {
                 selector: 'edge:selected',
                 style: {
-                    'line-color': '#00B4D8',
-                    'target-arrow-color': '#00B4D8',
+                    'line-color': '#ff6347',
+                    'target-arrow-color': '#ff6347',
                     'width': 4,
                     'opacity': 1
                 }
@@ -172,9 +174,9 @@
             {
                 selector: '.highlighted',
                 style: {
-                    'background-color': '#E63946',
-                    'line-color': '#E63946',
-                    'target-arrow-color': '#E63946',
+                    'background-color': '#ff6347',
+                    'line-color': '#ff6347',
+                    'target-arrow-color': '#ff6347',
                     'opacity': 1,
                     'z-index': 999
                 }

@@ -1,12 +1,17 @@
 {{ define "main" }}
 <div class="container">
     <!-- Note Title -->
-    <div class="title-box-3d mb-lg">
-        <h1>{{ .Title }}</h1>
+    <div class="section">
+        <div class="section-head is-first">
+            <div class="section-head-main">
+                <div class="section-label">Note</div>
+                <h1 class="section-title hero-title">{{ .Title }}</h1>
+            </div>
+        </div>
     </div>
 
     <!-- Note Meta Information -->
-    <div class="note-meta mb-md" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+    <div class="note-meta section" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
         {{ if .Params.tags }}
         <div class="note-tags">
             {{ range .Params.tags }}
@@ -32,16 +37,19 @@
     <div class="hand-divider mb-lg"></div>
 
     <!-- Note Content -->
-    <article class="note-content" style="font-size: 1.1rem; line-height: 1.8;">
+    <article class="note-content section" style="font-size: 1.1rem; line-height: 1.8;">
         {{ .Content }}
     </article>
 
     <!-- References (Outbound Links) -->
     {{ if .Params.references }}
-    <div class="mt-xl mb-lg">
-        <h2 class="hand-drawn-line hand-underline-teal mb-md">
-            <span class="doodle-arrow">→</span> References
-        </h2>
+    <div class="section">
+        <div class="section-head">
+            <div class="section-head-main">
+                <div class="section-label">Links</div>
+                <h2 class="section-title">References</h2>
+            </div>
+        </div>
         <div class="notes-grid">
             {{ range .Params.references }}
             <div class="note-card note-card-compact">

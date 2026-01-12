@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="container">
+    <div class="section">
+        <div class="section-head is-first">
+            <div class="section-head-main">
+                <div class="section-label">About</div>
+                <h1 class="section-title hero-title">{{ .Title }}</h1>
+                {{ if .Params.description }}
+                <p class="section-copy">{{ .Params.description }}</p>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="card note-content">
+            {{ .Content }}
+        </div>
+    </div>
+</div>
+{{ end }}

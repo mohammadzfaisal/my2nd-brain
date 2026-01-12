@@ -1,10 +1,15 @@
 {{ if .Params.backlinks }}
-<div class="mt-xl">
-    <h2 class="hand-drawn-line hand-underline-orange mb-md">
-        <span class="doodle-arrow">←</span> Backlinks
-        <span class="number-circle number-circle-orange">{{ len .Params.backlinks }}</span>
-    </h2>
-    <p style="opacity: 0.8; margin-bottom: 1.5rem;">
+<div class="section">
+    <div class="section-head">
+        <div class="section-head-main">
+            <div class="section-label">Links</div>
+            <h2 class="section-title">Backlinks</h2>
+        </div>
+        <div class="section-head-cta">
+            <span class="number-circle number-circle-orange">{{ len .Params.backlinks }}</span>
+        </div>
+    </div>
+    <p class="section-copy">
         These notes link to this page:
     </p>
 
@@ -20,12 +25,17 @@
 </div>
 {{ else }}
 <!-- Placeholder for dynamically loaded backlinks -->
-<div id="backlinks-container" class="mt-xl" style="display: none;">
-    <h2 class="hand-drawn-line hand-underline-orange mb-md">
-        <span class="doodle-arrow">←</span> Backlinks
-        <span id="backlinks-count" class="number-circle number-circle-orange">0</span>
-    </h2>
-    <p style="opacity: 0.8; margin-bottom: 1.5rem;">
+<div id="backlinks-container" class="section" style="display: none;">
+    <div class="section-head">
+        <div class="section-head-main">
+            <div class="section-label">Links</div>
+            <h2 class="section-title">Backlinks</h2>
+        </div>
+        <div class="section-head-cta">
+            <span id="backlinks-count" class="number-circle number-circle-orange">0</span>
+        </div>
+    </div>
+    <p class="section-copy">
         These notes link to this page:
     </p>
     <div id="backlinks-list" class="notes-grid"></div>

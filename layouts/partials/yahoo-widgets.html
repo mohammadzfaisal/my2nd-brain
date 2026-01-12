@@ -1,0 +1,91 @@
+<!-- Yahoo-style Widgets (only visible in Yahoo mode) -->
+<div class="yahoo-widgets-container" style="display: none; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-16, 1rem); margin-top: var(--spacing-24, 1.5rem);">
+
+    <!-- Trending Widget -->
+    <div class="yahoo-trending">
+        <div class="yahoo-trending-header">
+            <span class="yahoo-trending-icon">⚡</span>
+            <h3 class="yahoo-trending-title">Trending Topics</h3>
+        </div>
+        <ul class="yahoo-trending-list">
+            <li class="yahoo-trending-item">
+                <div class="yahoo-badge status-up">1</div>
+                <span class="yahoo-trending-item-text">Knowledge Management</span>
+            </li>
+            <li class="yahoo-trending-item">
+                <div class="yahoo-badge">2</div>
+                <span class="yahoo-trending-item-text">Second Brain</span>
+            </li>
+            <li class="yahoo-trending-item">
+                <div class="yahoo-badge status-up">3</div>
+                <span class="yahoo-trending-item-text">Personal Wiki</span>
+            </li>
+            <li class="yahoo-trending-item">
+                <div class="yahoo-badge">4</div>
+                <span class="yahoo-trending-item-text">Note Taking</span>
+            </li>
+            <li class="yahoo-trending-item">
+                <div class="yahoo-badge">5</div>
+                <span class="yahoo-trending-item-text">Digital Garden</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Stats Widget (Yahoo-style) -->
+    <div class="yahoo-weather">
+        <div class="yahoo-weather-header">
+            <h3 class="yahoo-weather-title">Knowledge Stats</h3>
+        </div>
+        <div class="yahoo-weather-current">
+            <div>
+                <div class="yahoo-weather-temp" id="yahoo-total-notes">0</div>
+                <div style="font-size: 13px; color: var(--yahoo-text-secondary, #6E6E73);">Total Notes</div>
+            </div>
+            <div style="font-size: 48px;">📚</div>
+        </div>
+        <div class="yahoo-weather-forecast">
+            <div class="yahoo-weather-day">
+                <div class="yahoo-weather-day-name">Tags</div>
+                <div class="yahoo-weather-day-icon">🏷️</div>
+                <div class="yahoo-weather-day-temp" id="yahoo-total-tags">0</div>
+            </div>
+            <div class="yahoo-weather-day">
+                <div class="yahoo-weather-day-name">Links</div>
+                <div class="yahoo-weather-day-icon">🔗</div>
+                <div class="yahoo-weather-day-temp" id="yahoo-total-connections">0</div>
+            </div>
+            <div class="yahoo-weather-day">
+                <div class="yahoo-weather-day-name">Today</div>
+                <div class="yahoo-weather-day-icon">📅</div>
+                <div class="yahoo-weather-day-temp">{{ now.Day }}</div>
+            </div>
+            <div class="yahoo-weather-day">
+                <div class="yahoo-weather-day-name">Week</div>
+                <div class="yahoo-weather-day-icon">📊</div>
+                <div class="yahoo-weather-day-temp">{{ now.Weekday }}</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+// Show/hide Yahoo widgets based on mode
+document.addEventListener('DOMContentLoaded', function() {
+    const widgetsContainer = document.querySelector('.yahoo-widgets-container');
+
+    function updateWidgetsVisibility() {
+        const isYahooMode = document.body.classList.contains('yahoo-mode');
+        if (widgetsContainer) {
+            widgetsContainer.style.display = isYahooMode ? 'grid' : 'none';
+        }
+    }
+
+    // Initial check
+    updateWidgetsVisibility();
+
+    // Watch for mode changes
+    const observer = new MutationObserver(updateWidgetsVisibility);
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+});
+</script>

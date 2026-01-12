@@ -21,12 +21,7 @@
         </div>
     </footer>
 
-    <!-- Hugo Asset Pipeline for JavaScript -->
-    {{ $sanityClient := resources.Get "js/sanity-client.js" }}
-    {{ $graphView := resources.Get "js/graph-view.js" }}
-    {{ $openPeeps := resources.Get "js/openpeeps.js" }}
-    {{ $js := slice $sanityClient $graphView $openPeeps | resources.Concat "js/bundle.js" | resources.Minify }}
-    <script src="{{ $js.Permalink }}" defer></script>
+    <a class="about-float" href="/about/" aria-label="About">[i]</a>
 
     <!-- Pass Sanity config to client-side scripts -->
     <script>
@@ -34,9 +29,16 @@
         window.SANITY_DATASET = '{{ .Site.Params.sanityDataset }}';
     </script>
 
-    <!-- External Dependencies -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/cytoscape-cose-bilkent@4.1.0/cytoscape-cose-bilkent.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" defer></script>
+    <!-- External Dependencies - Load first without defer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cytoscape-cose-bilkent@4.1.0/cytoscape-cose-bilkent.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
+
+    <!-- Hugo Asset Pipeline for JavaScript - Load after dependencies -->
+    {{ $sanityClient := resources.Get "js/sanity-client.js" }}
+    {{ $graphView := resources.Get "js/graph-view.js" }}
+    {{ $openPeeps := resources.Get "js/openpeeps.js" }}
+    {{ $js := slice $sanityClient $graphView $openPeeps | resources.Concat "js/bundle.js" | resources.Minify }}
+    <script src="{{ $js.Permalink }}" defer></script>
 </body>
 </html>

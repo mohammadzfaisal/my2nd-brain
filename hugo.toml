@@ -1,12 +1,12 @@
 baseURL = 'https://my2ndbrain.vercel.app'
 languageCode = 'en-us'
-title = 'MY 2ND BRAIN'
+title = 'Ultradian'
 theme = ''
 
 [params]
   description = "Mohammad Faisal's Knowledge Base"
   author = "Mohammad Faisal"
-  sanityProjectId = ""
+  sanityProjectId = "mvggkjnh"
   sanityDataset = "production"
 
 [outputs]

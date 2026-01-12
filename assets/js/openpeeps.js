@@ -1,6 +1,6 @@
 /**
  * OpenPeeps Integration
- * Hand-drawn avatar illustrations for categories and profile
+ * Avatar illustrations for categories and profile
  */
 
 (function() {
@@ -47,8 +47,8 @@
 
         return `
             <svg viewBox="0 0 100 100" width="${size}" height="${size}" class="peep-placeholder">
-                <circle cx="50" cy="50" r="40" fill="${color}" stroke="#1A1A1A" stroke-width="3" filter="url(#wobble)"/>
-                <text x="50" y="65" text-anchor="middle" font-size="50" font-family="Architects Daughter, cursive" fill="#1A1A1A" font-weight="700">${initial}</text>
+                <circle cx="50" cy="50" r="40" fill="${color}" stroke="#45372b" stroke-width="3"/>
+                <text x="50" y="65" text-anchor="middle" font-size="50" font-family="Fira Code, JetBrains Mono, Monaco, Consolas, Ubuntu Mono, monospace" fill="#45372b" font-weight="700">${initial}</text>
             </svg>
         `;
     }
