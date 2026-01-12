@@ -1,7 +1,6 @@
 baseURL = 'https://my2ndbrain.vercel.app'
 languageCode = 'en-us'
 title = 'Ultradian'
-theme = ''
 
 [params]
   description = "Mohammad Faisal's Knowledge Base"
