@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "bash build.sh",
+  "buildCommand": "npm run fetch-sanity && hugo",
   "outputDirectory": "public",
   "framework": null,
   "installCommand": "npm install && npm install -g hugo",
