@@ -1,0 +1,12 @@
+{{ $url := .Get "url" }}
+{{ $title := .Get "title" | default "Embed" }}
+{{ $caption := .Get "caption" }}
+<div class="embed-block">
+  <div class="embed-title">{{ $title }}</div>
+  {{ if $url }}
+  <a href="{{ $url }}" target="_blank" rel="noopener">{{ $url }}</a>
+  {{ end }}
+  {{ if $caption }}
+  <div class="embed-caption">{{ $caption }}</div>
+  {{ end }}
+</div>

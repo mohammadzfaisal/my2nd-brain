@@ -3,7 +3,7 @@
     {
       "_createdAt": "2026-01-12T19:29:09Z",
       "_id": "eb1c0fb5-cc06-42e3-80df-9b36c6922392",
-      "_updatedAt": "2026-01-12T23:08:10Z",
+      "_updatedAt": "2026-01-13T05:00:19Z",
       "body": [
         {
           "_key": "3f003b62bc38",
@@ -11,14 +11,14 @@
           "asset": null,
           "children": [
             {
-              "_key": "a6f6ee584a08",
+              "_key": "ff3467dd35aa",
               "_type": "span",
               "marks": [],
-              "text": "# Python Instance Made Easy "
+              "text": "Python Instance Made Easy "
             }
           ],
           "markDefs": [],
-          "style": "normal"
+          "style": "h1"
         },
         {
           "_key": "5e121ef81479",
@@ -29,7 +29,22 @@
               "_key": "6107be390a66",
               "_type": "span",
               "marks": [],
-              "text": "### Memory as a parking lot and an Instance as a parked car."
+              "text": "Memory as a parking lot and an Instance as a parked car."
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "bda3f0695bba",
+          "_type": "block",
+          "asset": null,
+          "children": [
+            {
+              "_key": "a29dbe946005",
+              "_type": "span",
+              "marks": [],
+              "text": ""
             }
           ],
           "markDefs": [],
@@ -44,15 +59,7 @@
               "_key": "9146fa52e09e",
               "_type": "span",
               "marks": [],
-              "text": "Object vs. instance isn't an either/or. It's like asking what's the difference between a \"food\" and a \"vegetable\". They're just different ways of thinking about the same thing. Let me unpack each separately.\nObjects\nEverything is an \"object\" in Python. Equivalently, there is nothing in Python that is NOT an object. Functions, variables, classes, strings, lists, dicts, dict keys, dict values, etc. All objects.\nThe concept is very, very simple - even fundamental - but explaining it to people new to OOP is like explaining water to a fish, or matter to a child: You already intuitively know what it is and have been using it all along. You’ve just never thought about it so directly, and trying to do so makes you think it’s more complex and nuanced than it really is.\nYou can literally think of \"object\" as just a more technical word for \"thing\" when talking about Python code. It's literally that simple. Deceptively simple, so much so that it almost seems complicated. But it’s not. Just remember that "
-            },
-            {
-              "_key": "d036d4d1513c",
-              "_type": "span",
-              "marks": [
-                "highlight"
-              ],
-              "text": "every distinct entity in a chunk of Python code is an object, bar none."
+              "text": "Object vs. instance isn't an either/or. It's like asking what's the difference between a \"food\" and a \"vegetable\". They're just different ways of thinking about the same thing. Let me unpack each separately.\nObjects\nEverything is an \"object\" in Python. Equivalently, there is nothing in Python that is NOT an object. Functions, variables, classes, strings, lists, dicts, dict keys, dict values, etc. All objects.\nThe concept is very, very simple - even fundamental - but explaining it to people new to OOP is like explaining water to a fish, or matter to a child: You already intuitively know what it is and have been using it all along. You’ve just never thought about it so directly, and trying to do so makes you think it’s more complex and nuanced than it really is.\nYou can literally think of \"object\" as just a more technical word for \"thing\" when talking about Python code. It's literally that simple. Deceptively simple, so much so that it almost seems complicated. But it’s not. Just remember that every distinct entity in a chunk of Python code is an object, bar none."
             }
           ],
           "markDefs": [],
@@ -183,14 +190,22 @@
           "asset": null,
           "children": [
             {
-              "_key": "77da80283a21",
+              "_key": "d65e3f5c8e06",
               "_type": "span",
               "marks": [
-                "em",
-                "strong"
+                "highlight"
               ],
-              "text": "In short: Python is object-oriented in that every element you work with is an object."
-            },
+              "text": "    Python is object-oriented in that every element you work with is an object."
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "e95302a29f85",
+          "_type": "block",
+          "asset": null,
+          "children": [
             {
               "_key": "f3b3533066c6",
               "_type": "span",
@@ -214,7 +229,16 @@
                 "strong"
               ],
               "text": "Summary To recap:"
-            },
+            }
+          ],
+          "markDefs": [],
+          "style": "h5"
+        },
+        {
+          "_key": "8bfc2e3b9436",
+          "_type": "block",
+          "asset": null,
+          "children": [
             {
               "_key": "e1dfd936be65",
               "_type": "span",
@@ -388,27 +412,12 @@
           "style": "normal"
         },
         {
-          "_key": "8fc39601f09a",
-          "_type": "block",
+          "_key": "cd13c2902518",
+          "_type": "code",
           "asset": null,
-          "children": [
-            {
-              "_key": "89056e24746f",
-              "_type": "span",
-              "marks": [
-                "code"
-              ],
-              "text": "class User:\n    pass\n\nu = User()"
-            },
-            {
-              "_key": "0b9c3b78e5cd",
-              "_type": "span",
-              "marks": [],
-              "text": "\n"
-            }
-          ],
-          "markDefs": [],
-          "style": "normal"
+          "code": "class User:\n    pass\n\nu = User()",
+          "language": "python",
+          "markDefs": null
         },
         {
           "_key": "2c316a6ac94c",
@@ -804,113 +813,70 @@
           "style": "normal"
         },
         {
-          "_key": "37bdbef2a318",
-          "_type": "block",
+          "_key": "e11cb08631f2",
+          "_type": "callout",
           "asset": null,
-          "children": [
+          "body": [
             {
-              "_key": "fe3e0725db45",
-              "_type": "span",
-              "marks": [
-                "em"
+              "_key": "48efcf44bacb",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "fe7fff2b26fc",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "Memory: Storage space managed by Python / OS"
+                }
               ],
-              "text": "Term:"
-            }
-          ],
-          "markDefs": [],
-          "style": "h3"
-        },
-        {
-          "_key": "48efcf44bacb",
-          "_type": "block",
-          "asset": null,
-          "children": [
-            {
-              "_key": "fe7fff2b26fc",
-              "_type": "span",
-              "marks": [
-                "strong"
-              ],
-              "text": "→ Memory: "
+              "markDefs": [],
+              "style": "normal"
             },
             {
-              "_key": "d96eb08141a6",
-              "_type": "span",
-              "marks": [],
-              "text": "Storage space managed by Python / OS"
-            }
-          ],
-          "markDefs": [],
-          "style": "normal"
-        },
-        {
-          "_key": "e4222938972f",
-          "_type": "block",
-          "asset": null,
-          "children": [
-            {
-              "_key": "7b38725eb3ab",
-              "_type": "span",
-              "marks": [
-                "strong"
+              "_key": "e4222938972f",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "7b38725eb3ab",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "Object: A runtime entity (everything in Python is an object)"
+                }
               ],
-              "text": "→ Object: "
+              "markDefs": [],
+              "style": "normal"
             },
             {
-              "_key": "889da536d035",
-              "_type": "span",
-              "marks": [],
-              "text": "A runtime entity (everything in Python is an object)"
-            }
-          ],
-          "markDefs": [],
-          "style": "normal"
-        },
-        {
-          "_key": "37896735107b",
-          "_type": "block",
-          "asset": null,
-          "children": [
-            {
-              "_key": "9c69e77e1b64",
-              "_type": "span",
-              "marks": [
-                "strong"
+              "_key": "37896735107b",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "9c69e77e1b64",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "Instance: A specific object created from a class"
+                }
               ],
-              "text": "→ Instance: "
+              "markDefs": [],
+              "style": "normal"
             },
             {
-              "_key": "3742fe038924",
-              "_type": "span",
-              "marks": [],
-              "text": "A specific object created from a class"
-            }
-          ],
-          "markDefs": [],
-          "style": "normal"
-        },
-        {
-          "_key": "673e1cff43bb",
-          "_type": "block",
-          "asset": null,
-          "children": [
-            {
-              "_key": "b9dd46106c5b",
-              "_type": "span",
-              "marks": [
-                "strong"
+              "_key": "673e1cff43bb",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "3617f601e2c7",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "Reference: A name pointing to an object in memory"
+                }
               ],
-              "text": "→ Reference: "
-            },
-            {
-              "_key": "1b1330009648",
-              "_type": "span",
-              "marks": [],
-              "text": "A name pointing to an object in memory"
+              "markDefs": [],
+              "style": "normal"
             }
           ],
-          "markDefs": [],
-          "style": "normal"
+          "markDefs": null,
+          "title": "Terms",
+          "tone": "info"
         },
         {
           "_key": "3415adf5895d",
@@ -1129,7 +1095,8 @@
           "asset": {
             "_id": "image-dd4ad8a43f9fd1443ccbd6f9cf2f92117f1ba3c2-2816x1536-png",
             "url": "https://cdn.sanity.io/images/mvggkjnh/production/dd4ad8a43f9fd1443ccbd6f9cf2f92117f1ba3c2-2816x1536.png"
-          }
+          },
+          "markDefs": null
         },
         {
           "_key": "3e836378f9b5",
@@ -1388,7 +1355,8 @@
           "asset": {
             "_id": "image-9ccd0f459b69b8ef78fea333e8db7f55d9057b1a-2816x1536-png",
             "url": "https://cdn.sanity.io/images/mvggkjnh/production/9ccd0f459b69b8ef78fea333e8db7f55d9057b1a-2816x1536.png"
-          }
+          },
+          "markDefs": null
         },
         {
           "_key": "397864fc1d2d",
@@ -1531,7 +1499,8 @@
           "asset": {
             "_id": "image-eb4c8f66e86431890241aed3b3edd42a7ececb4e-2816x1536-png",
             "url": "https://cdn.sanity.io/images/mvggkjnh/production/eb4c8f66e86431890241aed3b3edd42a7ececb4e-2816x1536.png"
-          }
+          },
+          "markDefs": null
         },
         {
           "_key": "b25bc33f3d91",
@@ -1829,7 +1798,7 @@
               "_key": "32bb13f45857",
               "_type": "span",
               "marks": [],
-              "text": ", only to find their fix has vanished. Because it was made in a detached HEAD state, no branch was tracking it, and it was eventually deleted by Git's garbage collection process���two hours of work, gone."
+              "text": ", only to find their fix has vanished. Because it was made in a detached HEAD state, no branch was tracking it, and it was eventually deleted by Git's garbage collection process—two hours of work, gone."
             }
           ],
           "markDefs": [],
@@ -1872,7 +1841,8 @@
           "asset": {
             "_id": "image-49d61182d33d9a2d39122d559e62d6daee021521-2816x1536-png",
             "url": "https://cdn.sanity.io/images/mvggkjnh/production/49d61182d33d9a2d39122d559e62d6daee021521-2816x1536.png"
-          }
+          },
+          "markDefs": null
         },
         {
           "_key": "9eb5db14643b",
@@ -2388,7 +2358,8 @@
           "asset": {
             "_id": "image-84d4cd4f9aa694877203407822b09b4d0470fbf8-688x296-jpg",
             "url": "https://cdn.sanity.io/images/mvggkjnh/production/84d4cd4f9aa694877203407822b09b4d0470fbf8-688x296.jpg"
-          }
+          },
+          "markDefs": null
         },
         {
           "_key": "7b89bb8306f4",
@@ -2903,7 +2874,8 @@
           "asset": {
             "_id": "image-8acc43d60de742753a8bf4c0214ec0586d618084-688x318-jpg",
             "url": "https://cdn.sanity.io/images/mvggkjnh/production/8acc43d60de742753a8bf4c0214ec0586d618084-688x318.jpg"
-          }
+          },
+          "markDefs": null
         },
         {
           "_key": "bdef1f75a683",
@@ -3307,6 +3279,6 @@
       "title": "Git Makes Sense"
     }
   ],
-  "fetchedAt": "2026-01-12T23:11:49.004Z",
+  "fetchedAt": "2026-01-13T05:00:50.991Z",
   "totalCount": 2
 }

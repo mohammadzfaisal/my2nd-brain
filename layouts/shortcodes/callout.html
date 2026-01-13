@@ -1,0 +1,8 @@
+{{ $tone := .Get "tone" | default "info" }}
+{{ $title := .Get "title" | default "Callout" }}
+<div class="callout callout-{{ $tone }}">
+  <div class="callout-title">{{ $title }}</div>
+  <div class="callout-body">
+    {{ .Inner | markdownify }}
+  </div>
+</div>

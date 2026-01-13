@@ -823,6 +823,110 @@ input[type="radio"]:checked {
   margin-bottom: var(--spacing-10);
 }
 
+.text-lead {
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.text-small {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.text-caption {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.text-code-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.callout {
+  border: 2px solid var(--color-border);
+  padding: var(--spacing-4);
+  background: var(--color-bg);
+  margin: var(--spacing-4) 0;
+}
+
+.callout-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--spacing-2);
+}
+
+.callout-info {
+  border-color: var(--color-border);
+}
+
+.callout-warning {
+  border-color: var(--color-orange);
+}
+
+.callout-idea {
+  border-color: var(--color-teal);
+}
+
+.callout-note {
+  border-color: var(--color-accent);
+}
+
+.checklist {
+  list-style: none;
+  padding-left: 0;
+  margin: var(--spacing-4) 0;
+}
+
+.checklist-item {
+  margin-bottom: var(--spacing-2);
+  font-size: 0.95rem;
+}
+
+.checklist-item.is-done {
+  color: var(--color-text-secondary);
+  text-decoration: line-through;
+}
+
+.divider {
+  border: none;
+  border-top: 2px solid var(--color-border);
+  margin: var(--spacing-6) 0;
+}
+
+.divider-dashed {
+  border-top-style: dashed;
+}
+
+.embed-block {
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-4);
+  margin: var(--spacing-4) 0;
+}
+
+.embed-title {
+  font-weight: 600;
+  margin-bottom: var(--spacing-2);
+}
+
+.embed-caption {
+  margin-top: var(--spacing-2);
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.code-strong {
+  font-weight: 700;
+}
+
+.code-muted {
+  opacity: 0.7;
+}
+
 .section-head {
   display: flex;
   align-items: flex-end;
